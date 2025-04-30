@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 
 class ConnectionForm extends StatefulWidget {
+  const ConnectionForm({super.key});
+
   @override
   State<ConnectionForm> createState() => _ConnectionFormState();
 }
@@ -30,6 +32,7 @@ class _ConnectionFormState extends State<ConnectionForm> {
     if (value.length < 8) {
       return 'Le mot de passe doit contenir au moins 8 caractères';
     }
+    return null;
   }
 
   void showSuccessDialog(BuildContext context) {
@@ -93,10 +96,10 @@ class _ConnectionFormState extends State<ConnectionForm> {
                         _formKey.currentState!.save();
                        showSuccessDialog(context);
                       }},
-                    child: Text("Connexion", style: TextStyle(color: Colors.white)),
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all<Color>(Color(0xFF58B0F0)),
-                )),
+                ),
+                    child: Text("Connexion", style: TextStyle(color: Colors.white))),
 
               ],
             )));

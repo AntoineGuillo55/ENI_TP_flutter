@@ -5,6 +5,8 @@ void main() {
 }
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,7 +35,7 @@ class ContainerCalculator extends StatefulWidget {
 
 
 
-  ContainerCalculator({super.key});
+  const ContainerCalculator({super.key});
 
   @override
   State<StatefulWidget> createState() => _ContainerCalculatorState();
@@ -62,7 +64,7 @@ class _ContainerCalculatorState extends State<ContainerCalculator> {
         Article(productName: "Stylo", unitPrice: 1.5,  onTotalChanged: majTotalOrder),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text("Total = ${totalOrder} €")],)
+          children: [Text("Total = $totalOrder €")],)
       ],
     );
     throw UnimplementedError();
@@ -121,7 +123,7 @@ class _ArticleState extends State<Article> {
       padding: const EdgeInsets.all(10.0),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         Text(widget.productName),
-        Text(widget.unitPrice.toString() + " €"),
+        Text("${widget.unitPrice} €"),
         TextButton(
             onPressed: incrementQuantity,
             style: ButtonStyle(

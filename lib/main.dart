@@ -3,7 +3,6 @@ import 'package:tp/connection-form.dart';
 import 'package:tp/footer.dart';
 import 'package:tp/header.dart';
 
-import 'buttons.dart';
 import 'content-body.dart';
 
 void main() {
@@ -11,6 +10,8 @@ void main() {
 }
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(this.title, style: TextStyle(color: Colors.white),)),
+      appBar: AppBar(title: Text(title, style: TextStyle(color: Colors.white),)),
       body: Column(
         children: [
           Header(),
