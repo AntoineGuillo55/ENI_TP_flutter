@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tp/connection-form.dart';
 import 'package:tp/footer.dart';
 import 'package:tp/header.dart';
 
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
       body: Column(
         children: [
           Header(),
+          ConnectionForm(),
           ContentBody(),
           Footer()
         ],

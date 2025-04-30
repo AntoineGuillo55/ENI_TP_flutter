@@ -9,9 +9,9 @@ class Header extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(0.0, 25.0, 0, 25.0),
         color: Color(0xFF58B0F0),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          TopButton(label: "Nouveau"),
+          IconButton(onPressed: () {}, icon: Icon(Icons.edit, color: Colors.white)),
           TopButton(label: "Accueil"),
-          TopButton(label: "Rechercher")
+          IconButton(onPressed: () {}, icon: Icon(Icons.search, color: Colors.white))
         ]));
   }
 }

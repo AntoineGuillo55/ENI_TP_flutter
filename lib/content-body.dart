@@ -50,9 +50,9 @@ class ContentBody extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                MiddleButton(label: "Répondre"),
-                MiddleButton(label: "Retweet"),
-                MiddleButton(label: "Favoris")
+                IconButton(onPressed: () {}, icon: Icon(Icons.messenger_outline)),
+                IconButton(onPressed: () {}, icon: Icon(Icons.repeat)),
+                IconButton(onPressed: () {}, icon: Icon(Icons.star_border_outlined)),
               ],),
           )
         ],
