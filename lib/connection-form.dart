@@ -45,7 +45,7 @@ class _ConnectionFormState extends State<ConnectionForm> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Ferme la boîte de dialogue
+                Navigator.pop(context);
               },
               child: Text("OK"),
             ),
@@ -58,50 +58,56 @@ class _ConnectionFormState extends State<ConnectionForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
-        child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                TextFormField(
-                  onSaved: (value) => {identifiant = value!},
-                  validator: validateIdentifiant,
-                  decoration: InputDecoration(
-                    labelText: 'Identifiant',
+        key: _formKey,
+        child: Expanded(
+          child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  TextFormField(
+                    onSaved: (value) => {identifiant = value!},
+                    validator: validateIdentifiant,
+                    decoration: InputDecoration(
+                      labelText: 'Identifiant',
+                    ),
                   ),
-                ),
-                TextFormField(
-                  onSaved: (value) => motDePasse = value!,
-                  validator: validateMotDePasse,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: 'Mot de passe',
+                  TextFormField(
+                    onSaved: (value) => motDePasse = value!,
+                    validator: validateMotDePasse,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Mot de passe',
+                    ),
                   ),
-                ),
-                Row(
-                  children: [
-                    Switch(
-                        value: rememberMe,
-                        onChanged: (value) {
-                          setState(() {
-                            rememberMe = value;
-                          });
-                        }),
-                    Text("Mémoriser mes informations"),
-                  ],
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-                       showSuccessDialog(context);
-                      }},
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all<Color>(Color(0xFF58B0F0)),
-                ),
-                    child: Text("Connexion", style: TextStyle(color: Colors.white))),
-
-              ],
-            )));
+                  Row(
+                    children: [
+                      Switch(
+                          value: rememberMe,
+                          onChanged: (value) {
+                            setState(() {
+                              rememberMe = value;
+                            });
+                          }),
+                      Text("Mémoriser mes informations"),
+                    ],
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          _formKey.currentState!.save();
+                          Navigator.pushNamed(context, "/home",
+                              arguments: identifiant);
+                          showSuccessDialog(context);
+                        }
+                      },
+                      style: ButtonStyle(
+                        backgroundColor:
+                            WidgetStateProperty.all<Color>(Color(0xFF58B0F0)),
+                      ),
+                      child: Text("Connexion",
+                          style: TextStyle(color: Colors.white))),
+                ],
+              )),
+        ));
   }
 }

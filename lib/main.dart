@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:tp/connection-form.dart';
 import 'package:tp/footer.dart';
 import 'package:tp/header.dart';
+import 'package:tp/login-page.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 import 'content-body.dart';
+import 'list-touit-page.dart';
 
 void main() {
+  setPathUrlStrategy();
   runApp(App());
 }
 
@@ -20,7 +24,8 @@ class App extends StatelessWidget {
           appBarTheme: AppBarTheme(
               backgroundColor: Colors.indigo)),
       title: "Demo layout",
-      home: MyApp(title: "Touitter"),
+      initialRoute: "/login",
+      routes: Routes.getRoutes(context),
     );
   }
 }
@@ -44,6 +49,15 @@ class MyApp extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class Routes {
+  static Map<String, WidgetBuilder> getRoutes(BuildContext context){
+    return {
+      "/login": (context) => LoginPage(),
+      "/home": (context) => ListTouitPage(),
+    };
   }
 }
 
