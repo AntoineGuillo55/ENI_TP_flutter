@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:tp/content-body.dart';
+import 'package:tp/touit-list-view.dart';
 
 
-import 'footer.dart';
-import 'header.dart';
+import '../composants/footer.dart';
+import '../composants/header.dart';
 
 class ListTouitPage extends StatelessWidget {
+  const ListTouitPage({super.key});
+
 
   // This widget is the root of your application.
   @override
@@ -18,7 +20,7 @@ class ListTouitPage extends StatelessWidget {
       body: Column(
         children: [
           Header(),
-          ContentBody(),
+          Expanded(child: TouitListView()),
           Footer()
         ],
       ),

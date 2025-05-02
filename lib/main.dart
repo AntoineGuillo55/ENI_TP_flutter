@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tp/connection-form.dart';
-import 'package:tp/footer.dart';
-import 'package:tp/header.dart';
-import 'package:tp/login-page.dart';
+import 'package:tp/pages/login-page.dart';
 import 'package:url_strategy/url_strategy.dart';
 
-import 'content-body.dart';
-import 'list-touit-page.dart';
+import 'pages/list-touit-page.dart';
 
 void main() {
   setPathUrlStrategy();
@@ -30,27 +26,27 @@ class App extends StatelessWidget {
   }
 }
 
-class MyApp extends StatelessWidget {
-  final String title;
-
-  const MyApp({super.key, required this.title});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(title, style: TextStyle(color: Colors.white),)),
-      body: Column(
-        children: [
-          Header(),
-          ConnectionForm(),
-          ContentBody(),
-          Footer()
-        ],
-      ),
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   final String title;
+//
+//   const MyApp({super.key, required this.title});
+//
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: Text(title, style: TextStyle(color: Colors.white),)),
+//       body: Column(
+//         children: [
+//           Header(),
+//           ConnectionForm(),
+//           ContentBody(),
+//           Footer()
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class Routes {
   static Map<String, WidgetBuilder> getRoutes(BuildContext context){

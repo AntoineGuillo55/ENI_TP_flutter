@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'connection-form.dart';
-import 'footer.dart';
-import 'header.dart';
+import '../composants/connection-form.dart';
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
 
   // This widget is the root of your application.
   @override
